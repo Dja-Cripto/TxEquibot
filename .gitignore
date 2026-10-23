@@ -14,3 +14,6 @@ coverage/
 *.log
 .DS_Store
 Thumbs.db
+
+# Local website source; deployed separately from the public documentation.
+/site/

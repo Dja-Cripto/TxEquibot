@@ -6,7 +6,11 @@ TxEquibot is a proposed web application for **rule-based trading automation and 
 
 **Stage:** product specification · **Initial venue:** TxFlow · **Delivery:** web application with a persistent execution service · **Builder:** individual developer
 
-> This repository currently contains product and engineering documentation. It does not contain a working bot, website, or live integration. Mainnet access has not been confirmed. No trading performance or existing user base is claimed.
+> This repository currently contains product and engineering documentation. A minimal website placeholder is online; the trading application and interactive prototype have not been implemented. Mainnet access has not been confirmed. No trading performance or existing user base is claimed.
+
+**Website:** [txequibot.setupdja.website](https://txequibot.setupdja.website/)
+
+The current page displays the project name only. It establishes the project's web address; it is not yet the product presentation or trading interface. The planned site will explain the product and provide a clearly labelled demonstration before any live trading functionality is introduced. Website source is maintained separately and intentionally excluded from this public repository.
 
 ## Start here
 
@@ -15,6 +19,7 @@ TxEquibot is a proposed web application for **rule-based trading automation and 
 | [Product proposal](docs/product/PROPOSAL.md) | User problem, product value, initial scope, and why TxFlow |
 | [Bot behavior](docs/product/BOT-BEHAVIOR.md) | Exactly how the first bot will enter, monitor, exit, pause, and recover |
 | [User experience](docs/product/USER-EXPERIENCE.md) | Planned screens and the journey from configuration to monitoring |
+| [Website specification](docs/product/WEBSITE.md) | Public site content, visual direction, demo behavior, and delivery criteria |
 | [System architecture](docs/engineering/ARCHITECTURE.md) | Execution service, integrations, persistence, and account isolation |
 | [Strategy evaluation](docs/engineering/EVALUATION.md) | Simulation methodology, costs, metrics, and limitations |
 | [Validation plan](docs/engineering/VALIDATION.md) | Evidence required before test and live releases |
