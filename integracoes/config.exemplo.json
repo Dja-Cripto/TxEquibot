@@ -1,0 +1,31 @@
+{
+  "documentationOnly": true,
+  "liveTradingEnabled": false,
+  "mode": "simulation",
+  "venues": ["txflow", "hibachi"],
+  "instruments": { "txflow": null, "hibachi": null },
+  "cycle": {
+    "holdDurationSeconds": 18000,
+    "alternativeTwelveHoursSeconds": 43200,
+    "timerStartsAt": "both_legs_confirmed_within_delta_tolerance",
+    "repeatAfterVerifiedClose": true,
+    "intervalBetweenCyclesSeconds": null,
+    "maxCycles": null,
+    "maxConcurrentCyclesPerUser": 1,
+    "initialDirection": null
+  },
+  "risk": {
+    "capitalPerVenue": null,
+    "maxLeverage": null,
+    "maxNetDeltaBaseUnits": null,
+    "maxUnhedgedSeconds": null,
+    "maxSlippageBps": null,
+    "maxDataAgeSeconds": null,
+    "minMarginBuffer": null,
+    "maxLoss": null,
+    "maxRoundTripCost": null,
+    "blockLiveTradingWhileAnyRequiredLimitIsNull": true
+  },
+  "webhook": { "enabled": false, "url": null },
+  "credentials": "Supply via a secure secret store; no keys in this file."
+}

@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+dist/
+build/
+coverage/
+*.log
+.DS_Store
+Thumbs.db

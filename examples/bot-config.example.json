@@ -1,0 +1,15 @@
+{
+  "schemaStatus": "proposal",
+  "executable": false,
+  "environment": "simulation",
+  "venue": "txflow",
+  "strategy": "bounded_position_cycle",
+  "instrument": null,
+  "direction": null,
+  "entry": { "mode": "user_triggered" },
+  "position": { "sizeBaseUnits": null, "maxLeverage": null, "marginMode": null },
+  "exit": { "maxHoldingSeconds": 18000, "timerAnchor": "first_confirmed_fill", "priceCondition": null },
+  "repeat": { "enabled": false, "maxCycles": null, "cooldownSeconds": null },
+  "risk": { "maxLoss": null, "maxSlippageBps": null, "maxDataAgeSeconds": null, "openingTimeoutSeconds": null },
+  "activation": { "enabled": false, "requiresValidatedConfiguration": true }
+}
