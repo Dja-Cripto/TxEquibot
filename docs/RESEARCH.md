@@ -26,4 +26,3 @@ A support reply supplied in this conversation states that individual developers 
 - This repository does not demonstrate that TxEquibot has received mainnet access.
 
 The product recommendation is an inference: a narrow, explainable workflow with validation gates is easier to assess and deliver as a solo project. It is not a selection criterion attributed to TxFlow.
-

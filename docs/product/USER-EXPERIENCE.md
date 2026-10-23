@@ -37,4 +37,3 @@ Connecting a wallet does not start trading. A successful login is not an agent a
 ## Future demonstration scope
 
 The proposed prototype will demonstrate Create bot, Evaluation, and Bot details using explicitly simulated data. It should help a reviewer understand the intended product without a deposit or wallet signature. Building this prototype is a later task; this repository currently contains documentation only.
-

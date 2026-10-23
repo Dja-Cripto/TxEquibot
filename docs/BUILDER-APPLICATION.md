@@ -39,4 +39,3 @@ Expected users and API usage remain estimates to finalize before submission. Use
 5. Does the granted access expressly cover the described automated trading use?
 
 This document is prepared for review, not submitted automatically. Individual eligibility does not constitute access approval.
-

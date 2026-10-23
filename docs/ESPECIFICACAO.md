@@ -134,4 +134,3 @@ O repositório e este documento não constituem aprovação do TX Flow. Confirma
 - [Builder Code](https://docs.txflow.com/getting-started/builder-code)
 - [Candidatura](https://txflow.com/apply)
 - [Termos](https://txflow.com/terms)
-

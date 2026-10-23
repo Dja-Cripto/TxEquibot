@@ -29,4 +29,3 @@ Compare simulations using matching periods, initial capital and cost assumptions
 ## Release gate
 
 A reproducible small dataset must produce independently reconciled trades and costs. Test missing data, adverse gaps, ambiguous bars, partial fills and boundary timestamps. Reports must visibly label the environment and assumptions before the feature is released.
-

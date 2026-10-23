@@ -18,4 +18,3 @@ Recomendação para o primeiro piloto: um ativo, um ciclo por usuário, posiçõ
 Não há uma integração autenticada pronta neste kit. Hosts, ambientes, versões, assinatura e permissões devem ser validados com as plataformas antes de operar. Não confundir testnet TX Flow com produção Hibachi: nunca combinar uma perna simulada com outra real para tentar produzir hedge.
 
 O período de permanência é uma regra operacional; não assegura rentabilidade. Cada abertura e fechamento tem custos. A estratégia econômica e os limites de perda ainda precisam ser definidos.
-

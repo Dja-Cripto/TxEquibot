@@ -31,4 +31,3 @@ Capture the strategy/account identifiers, last confirmed venue state, unresolved
 ## Evidence format
 
 Maintain a release record listing software version, scenarios run, environment, results, known limitations and unresolved defects. A checklist alone is not proof of a passing test. Numerical risk thresholds must be defined and reviewed before execution, not selected silently by the developer.
-

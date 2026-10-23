@@ -95,4 +95,3 @@ The earlier [Portuguese product plan](docs/PLANEJAMENTO-PRODUTO.md) and [integra
 Questions and implementation feedback can be raised through this repository's Issues when enabled. Please use [the contribution guide](CONTRIBUTING.md). Never post account credentials, private keys, seed phrases, or signed trading payloads.
 
 **Last reviewed:** 23 October 2026. Platform capabilities and access requirements must be rechecked during implementation.
-

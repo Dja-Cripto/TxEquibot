@@ -37,4 +37,3 @@
 - Confirmar continuidade do executor e recuperação do banco.
 
 Este checklist registra pendências reais. O kit não substitui aprovação de acesso, credenciais do usuário ou validação funcional.
-

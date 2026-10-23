@@ -23,4 +23,3 @@ Payload interno: versão, identificador único do evento, usuário/estratégia/c
 Para integrações externas, assinar payload com HMAC e timestamp, validar replay e idempotência e proteger destinos contra acesso a redes internas. Chaves de webhook são separadas das chaves de negociação. Nenhuma mensagem será enviada até o usuário configurar e autorizar um destino.
 
 Sinais de entrada por webhook, como TradingView, ficam fora do MVP. Se forem adicionados, entram como intenções autenticadas sujeitas aos mesmos limites, nunca como bypass dos controles de risco.
-

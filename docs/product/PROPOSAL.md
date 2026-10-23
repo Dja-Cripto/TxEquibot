@@ -39,4 +39,3 @@ Undecided. A software plan or explicitly approved Builder Code fee may be evalua
 ## Future hedged execution
 
 The original concept includes opposite positions across two venues and repeating 5-hour or 12-hour cycles. It remains a future module. Hibachi has been researched as a possible second connector; the initial application does not depend on that connector. Hedged execution requires independent margin monitoring and a policy for one-sided fills.
-

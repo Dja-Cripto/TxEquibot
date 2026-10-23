@@ -46,4 +46,3 @@ Mostrar as duas pernas, delta, margem por plataforma, tempo protegido, contagem 
 ## Validação obrigatória
 
 Simular relógio para 5 e 12 horas; confirmar ausência de reinício de prazo após falha. Validar fills parciais, rejeição, timeout ambíguo, revogação, desconexão, encerramento incompleto e disputa entre dois executores. Depois validar em ambientes de teste equivalentes. Não usar dinheiro real para compensar ausência de sandbox de uma das plataformas.
-

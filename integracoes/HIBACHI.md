@@ -41,4 +41,3 @@ A documentação de cancel-on-disconnect descreve cancelamento de ordens da cont
 Projeto local inspecionado: `separate local Hibachi prototype (not included in this repository)`. Contém `HibachiApiClient` e painel, mas não foi executado. Não copiar `.env`, configurações privadas ou pressupostos de funcionamento.
 
 Confirmar: ambiente de teste disponível, limites REST/WS por IP e conta, precisão e mínimos, política de assinatura/nonce, semântica de fechamento e escopo das credenciais. Não inventar valores ausentes; a integração real depende dessas verificações.
-

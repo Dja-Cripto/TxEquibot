@@ -47,4 +47,3 @@ Fonte: [limites](https://docs.txflow.com/api/rate-limits).
 Confirmar host mainnet, biblioteca mantida e compatível, acesso do projeto, canal de fills e seus schemas, regras do ativo, taxas atuais e fluxo de builder aplicável. A antiga URL `/api/sdk` retornou 404 nesta pesquisa; não tratar um nome de pacote mencionado anteriormente como dependência já validada.
 
 [Candidatura](https://txflow.com/apply) · [Termos](https://txflow.com/terms)
-

@@ -88,5 +88,3 @@ The bot is intended for genuine trading and hedging. Artificial volume, self-tra
 - [Terms of Use](https://txflow.com/terms)
 
 Platform requirements and parameters may change and must be checked before implementation and deployment.
-
-

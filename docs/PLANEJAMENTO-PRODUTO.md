@@ -120,4 +120,3 @@ Medir ativação, conclusão de simulação, falhas de ordem, diferença de resu
 ## 12. O que torna a proposta defensável
 
 Há alinhamento com os usos documentados, problema concreto, escopo solo viável e fases verificáveis. Isso melhora a clareza da avaliação; não revela os critérios internos do TX Flow nem garante seleção. Entregar uma boa proposta é o objetivo sob nosso controle.
-

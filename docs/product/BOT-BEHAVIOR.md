@@ -60,4 +60,3 @@ Repeat only when the previous cycle is resolved, the user still authorizes repet
 ## Failure rules
 
 Unknown order outcome: query orders/fills before retrying. Duplicate events: deduplicate by stable source identifiers. Stale market data: block new exposure and mark the incident. Unexpected manual position changes: reconcile and suspend new entries. Authorization failure: stop new writes and expose the reason. Platform outage: retain state and retry within bounds; never fabricate successful closure.
-

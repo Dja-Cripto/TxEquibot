@@ -59,4 +59,3 @@ Audit the complete delegated permission scope. Do not assume all agent actions a
 Aggregate rate limits across users sharing an IP. Prefer shared public streams and cached metadata; separate private routing and access checks. Monitor freshness, queue lag, unresolved orders, worker health, permission failures, and reconciliation latency. Back up durable state and test restoration before invited users.
 
 Optional notifications are downstream of durable events; delivery failure must not stall risk monitoring. Webhooks are not required to confirm fills. No alert channels are connected by this documentation.
-

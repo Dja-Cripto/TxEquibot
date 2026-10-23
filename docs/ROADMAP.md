@@ -25,4 +25,3 @@ Milestones are ordered by dependency, not calendar promises.
 ## Future cross-exchange cycles
 
 The earlier delta-neutral concept remains documented under `integracoes/`. It includes opposite positions, independent margin monitoring, 5/12-hour configurable durations, and repeat only after both legs close. It is not implied by the single-venue MVP and will require a separate validation gate.
-
