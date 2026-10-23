@@ -1,6 +1,6 @@
 # TxEquibot — especificação de produto e implementação
 
-> Documento de referência da expansão delta neutra. O MVP atual está definido nos documentos em inglês vinculados no README; esta especificação não representa o escopo da primeira entrega.
+> Documento de referência detalhado do foco delta neutro (TX Flow como plataforma principal, segunda perna por adaptador). O escopo vigente, o gate de edge mínimo, o Builder Code e o estado de acesso estão nos documentos em inglês vinculados no README; onde divergirem, valem os do README. Esta especificação não descreve funcionalidades prontas.
 
 Data: 23 de outubro de 2026. Status: planejamento. Este documento registra a intenção do usuário e propõe decisões de implementação; não descreve funcionalidades já prontas. Parâmetros financeiros, segunda plataforma e infraestrutura continuam pendentes.
 

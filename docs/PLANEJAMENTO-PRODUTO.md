@@ -1,6 +1,8 @@
 # TxEquibot — planejamento de produto e candidatura
 
-Pesquisa: 23/10/2026. Status: proposta, sem integração real validada. Este documento passa a orientar o posicionamento do produto. A especificação anterior e o kit de integração continuam como estudos técnicos para expansão delta neutra; não são mais o escopo inteiro do primeiro lançamento.
+Pesquisa: 23/10/2026. Status: proposta, sem integração real validada.
+
+> **Atualização (23/10/2026):** o foco do produto voltou a ser o ciclo delta neutro entre duas plataformas, com o TX Flow como plataforma principal, um gate de edge mínimo, taxa de Builder Code visível e testnet primeiro. Este documento fica como registro da pesquisa comparativa e do raciocínio sobre avaliação; onde as seções 1, 5 e 9 descreverem um MVP de uma plataforma só, vale o [README](../README.md) e os documentos em inglês. O host da mainnet do TX Flow está confirmado na documentação (`https://rpc.txflow.com`), mas o acesso de escrita continua sujeito a aprovação.
 
 ## 1. Decisão recomendada
 

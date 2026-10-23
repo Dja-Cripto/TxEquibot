@@ -2,7 +2,7 @@
 
 Public address: [txequibot.setupdja.website](https://txequibot.setupdja.website/).
 
-Status as of 23 October 2026: a white placeholder displaying “TxEquibot” is online. This document defines the next implementation; it does not claim those features already exist.
+Status as of 23 October 2026: a white placeholder displaying “TxEquibot” is online at that address. A presentation site with an interactive prototype (stages 2 and 3 below) has been built locally and is awaiting publication; until it is deployed, the public address still shows the placeholder. This document defines the site's content and rules; it does not claim features that are not live.
 
 ## Purpose
 
@@ -27,11 +27,11 @@ Project name and navigation to How it works, Planned features, Roadmap, and GitH
 
 ### Opening section
 
-Suggested headline: **Configure a trading bot. Evaluate its assumptions. Understand its execution.**
+Headline: **Delta-neutral cycles. Configured, evaluated, explained.**
 
-Supporting text: **TxEquibot is being developed to help TxFlow traders configure rule-based automation, explore simulated behavior, and monitor execution through a clear web interface.**
+Supporting text: **TxEquibot is being built to let traders run hedged position cycles — long on one venue, short on another — with explicit rules, honest cost accounting, and an execution record you can audit. TxFlow is the primary venue; other venues connect through a common adapter.**
 
-Visible status: **In development.** Primary link: **Read the project proposal**, pointing to the repository. Add **Explore the demo** only when the demonstration exists, with its simulated status visible.
+Visible status: **In development**, with chips for stage, live trading not available, mainnet access not confirmed, evaluations simulated, and market inputs read-only from TxFlow testnet. Primary links: **Open the prototype** (an in-page anchor to the working prototype) and **Read the documentation** (the repository).
 
 ### How it works
 
@@ -39,9 +39,9 @@ Five concise steps: Configure → Evaluate → Review → Authorize → Monitor.
 
 ### Planned capabilities
 
-Three groups: rule-based trading bots, transparent evaluation, and execution monitoring. Limit the page to the initial TxFlow scope. Cross-exchange delta-neutral cycles may appear under future development, clearly separate from current delivery.
+Three groups: explicit hedged-cycle configuration, transparent evaluation with a minimum-edge gate, and two-leg execution monitoring. A dedicated **Built for TxFlow** section ties design choices to TxFlow's documentation (agent keys, Builder Code and its visible fee sum, hourly funding, instrument metadata, testnet-first, shared rate limits) with links to the source pages, shows a read-only live testnet table, and states the anti-farming stance.
 
-Do not claim a timer creates profitability. A single-venue long or short bot is directional, not delta neutral.
+Do not claim a timer creates profitability. A single-venue long or short position is directional, not delta neutral. Do not present the hedge as full volume for TxFlow: one leg is on another venue.
 
 ### Product preview
 
@@ -63,7 +63,7 @@ GitHub link, project stage, and independent-project identification. Add contact 
 
 ## Visual direction
 
-Build a clean, professional, light-first presentation consistent with the current white placeholder. Use generous spacing, dark readable text, a restrained accent color, and clear typography. The future dashboard may offer a dark theme, but marketing and application should share typography and components.
+Build a clean, professional dark presentation with a green accent in the general style of the TxFlow brand: black background, neon green, square corners, hairline borders, bracketed uppercase labels. Marketing and prototype share typography and components. This is a stylistic echo only: do not use TxFlow's logo, imagery or copy, and keep the independent-project statement in the header area, the product section and the footer. The brand is TxEquibot.
 
 Avoid clutter, animated profit counters, aggressive financial imagery and excessive effects. Support desktop and mobile, keyboard navigation, visible focus, adequate contrast and reduced-motion preferences. No horizontal overflow at narrow phone widths.
 
@@ -71,9 +71,9 @@ Primary copy should be English for the developer-program review. Portuguese can 
 
 ## Demonstration behavior
 
-The user selects a simulated instrument, direction, size and holding period, then reviews a simulated configuration and opens a sample evaluation. A monitoring screen shows a mock cycle and the distinct controls for pausing new entries, stopping after a cycle and requesting closure.
+The user configures a two-venue cycle (instrument, direction, size, hold, limits, edge gate, builder fee, assumptions), sees a live computed summary, runs a seeded and reproducible evaluation computed from the entered values, reads a pre-trade checklist, and watches a simulated executor with distinct controls (pause new entries, stop after the cycle, cancel pending orders, close both legs) and injectable failures (rejected second leg, stale prices, executor restart, price shock, venue outage). Evaluations can be saved as versions and exported.
 
-Display a persistent simulated-data label. Do not connect mock buttons to real APIs. Do not collect wallet secrets or imply that a static report was computed from newly entered values. If the report is illustrative, label it as a fixed example; if interactive, implement the corresponding calculation.
+Display a persistent simulated-data label. The only network use permitted in the prototype is an optional, user-triggered read of TxFlow's public testnet `/info` endpoint for venue-A price, lot and funding; such values must be labelled with source and time, shown as unavailable on failure (never zero), and never mixed silently with placeholders. Do not connect any button to an account-level or signing API. Do not collect wallet secrets. Every evaluation is computed from the entered values; if it ever becomes illustrative, label it as a fixed example.
 
 ## Future live application requirements
 
@@ -85,7 +85,7 @@ Local website source belongs in the workspace's `site/` folder. That folder is e
 
 The current site is served on the owner's VPS through Cloudflare Tunnel. Infrastructure secrets and access details belong outside public documentation. Publishing a documentation change does not automatically deploy the website; they are separate workflows.
 
-This document does not authorize expanding the current placeholder by itself. Implement subsequent stages when requested by the project owner.
+Publishing the prototype replaces the placeholder and is a separate step decided by the project owner. Source stays local and unpublished in this repository.
 
 ## Acceptance criteria for the presentation release
 

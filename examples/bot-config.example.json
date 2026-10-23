@@ -2,14 +2,16 @@
   "schemaStatus": "proposal",
   "executable": false,
   "environment": "simulation",
-  "venue": "txflow",
-  "strategy": "bounded_position_cycle",
-  "instrument": null,
-  "direction": null,
-  "entry": { "mode": "user_triggered" },
-  "position": { "sizeBaseUnits": null, "maxLeverage": null, "marginMode": null },
-  "exit": { "maxHoldingSeconds": 18000, "timerAnchor": "first_confirmed_fill", "priceCondition": null },
+  "strategy": "delta_neutral_cycle",
+  "legs": [
+    { "venue": "txflow", "instrument": null, "side": null, "marginMode": null, "maxLeverage": null },
+    { "venue": "second_venue_adapter", "instrument": null, "side": null, "marginMode": null, "maxLeverage": null }
+  ],
+  "size": { "commonExecutableBaseUnits": null },
+  "cycle": { "holdSeconds": 43200, "timerAnchor": "both_legs_confirmed", "deltaTolerancePercent": null, "maxEntryBasisPercent": null, "maxUnhedgedSeconds": null },
+  "edgeGate": { "enabled": true, "minCarryToCostMultiple": null },
+  "fees": { "builderFeeTenthsOfBasisPoint": null },
   "repeat": { "enabled": false, "maxCycles": null, "cooldownSeconds": null },
-  "risk": { "maxLoss": null, "maxSlippageBps": null, "maxDataAgeSeconds": null, "openingTimeoutSeconds": null },
+  "risk": { "maxLossPerCycle": null, "maxSlippageBps": null, "maxDataAgeSeconds": null, "minMarginHealthPercent": null },
   "activation": { "enabled": false, "requiresValidatedConfiguration": true }
 }

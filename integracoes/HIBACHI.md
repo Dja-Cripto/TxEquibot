@@ -1,5 +1,7 @@
 # Integração Hibachi
 
+> Conector candidato para a segunda perna do ciclo delta neutro. Continua em fase de pesquisa: ambiente de teste, limites e semântica de fechamento não foram confirmados.
+
 ## Fontes e SDK
 
 O [portal oficial de desenvolvimento](https://docs.hibachi.xyz/hibachi-docs/api-and-developer-tools) aponta para a [referência API](https://api-doc.hibachi.xyz/), PyPI e o repositório `hibachi-xyz/yule-os`. Também foi localizado o [README do SDK Python](https://github.com/hibachi-xyz/hibachi_sdk/blob/main/python/README.md). Verificar qual repositório e versão são mantidos antes de fixar dependências; o código antigo não garante compatibilidade atual.

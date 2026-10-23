@@ -13,7 +13,7 @@ Proposta: duração fixa por ciclo no MVP. Cinco e doze horas são exemplos de e
 Falhas podem levar a `RECUPERANDO` ou `INTERVENÇÃO`; nunca saltar para um novo ciclo com exposição desconhecida.
 
 1. Reservar o ciclo persistente e adquirir exclusividade da estratégia.
-2. Verificar autorizações, margem, ativos compatíveis, dados recentes, limites e custos.
+2. Verificar autorizações, margem em cada plataforma, ativos compatíveis, dados recentes, base de entrada e limites. Aplicar o **gate de edge mínimo**: carry esperado = notional × (funding recebido pela perna vendida − funding pago pela perna comprada) × duração, com as taxas visíveis na entrada, deve ser pelo menos um múltiplo configurado dos custos (taxas em quatro execuções, eventual taxa de builder nas duas execuções no TX Flow e slippage estimado). Caso contrário, não abrir, registrar os números e reavaliar depois.
 3. Coordenar ordens de entrada. Confirmar fills e delta dentro da tolerância.
 4. Persistir `protected_at` em UTC e `scheduled_close_at = protected_at + hold_duration_seconds`. O prazo não começa no clique nem no envio da primeira ordem.
 5. Monitorar continuamente as duas contas; cinco ou doze horas não significam ficar sem verificar margem.
@@ -26,7 +26,7 @@ Se não existir tamanho comum executável dentro da tolerância de delta, não a
 
 ## Condições para repetição
 
-Repetição é uma preferência, não uma obrigação de abrir a qualquer custo. Bloquear nova entrada se houver posição residual, ordens pendentes, margem insuficiente, custos acima do limite, preço antigo, incidente, perda limite atingida ou autorização revogada. Permitir limite de ciclos e parada após o ciclo atual.
+Repetição é uma preferência, não uma obrigação de abrir a qualquer custo. Bloquear nova entrada se o gate de edge mínimo recusar, se houver posição residual, ordens pendentes, margem insuficiente, custos acima do limite, preço antigo, incidente, perda limite atingida ou autorização revogada. Permitir limite de ciclos e parada após o ciclo atual.
 
 No MVP, usar conta/subconta dedicada quando disponível e proibir operações manuais concorrentes nos mesmos instrumentos. Se a plataforma agrega posições, atribuição por estratégia precisa ser comprovada antes de permitir compartilhamento.
 

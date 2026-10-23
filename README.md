@@ -1,81 +1,82 @@
 # TxEquibot
 
-### Configure a trading bot. Evaluate its assumptions. Understand its execution.
+### Configure delta-neutral cycles. Evaluate whether the edge pays. Understand every execution.
 
-TxEquibot is a proposed web application for **rule-based trading automation and transparent strategy evaluation on TxFlow**. It is being designed by an independent developer for traders who want to configure bots, review their behavior in simulation, and monitor execution through one understandable interface.
+TxEquibot is a proposed web application for **delta-neutral position cycles with TxFlow as the primary venue**: long on one venue, short on another, with explicit rules, honest cost accounting, and an execution record a user can audit. It is being designed by an independent developer for traders who want to configure hedged bots, evaluate their assumptions in simulation, and monitor execution through one understandable interface.
 
-**Stage:** product specification · **Initial venue:** TxFlow · **Delivery:** web application with a persistent execution service · **Builder:** individual developer
+**Stage:** specification and interactive prototype · **Primary venue:** TxFlow · **Second leg:** adapter-based (Hibachi researched) · **Delivery:** web application with a persistent execution service · **Builder:** individual developer
 
-> This repository currently contains product and engineering documentation. A minimal website placeholder is online; the trading application and interactive prototype have not been implemented. Mainnet access has not been confirmed. No trading performance or existing user base is claimed.
+> This repository contains product and engineering documentation. An interactive prototype with simulated evaluations and optional read-only TxFlow testnet data has been built; it places no orders and connects no wallet. The trading application has not been implemented. TxFlow mainnet access has not been granted. No trading performance or existing user base is claimed.
 
 **Website:** [txequibot.setupdja.website](https://txequibot.setupdja.website/)
 
-The current page displays the project name only. It establishes the project's web address; it is not yet the product presentation or trading interface. The planned site will explain the product and provide a clearly labelled demonstration before any live trading functionality is introduced. Website source is maintained separately and intentionally excluded from this public repository.
+A minimal placeholder is currently live at that address. The prototype will replace it when published. Website source is maintained separately and intentionally excluded from this public repository.
 
 ## Start here
 
 | Document | What it explains |
 |---|---|
-| [Product proposal](docs/product/PROPOSAL.md) | User problem, product value, initial scope, and why TxFlow |
-| [Bot behavior](docs/product/BOT-BEHAVIOR.md) | Exactly how the first bot will enter, monitor, exit, pause, and recover |
-| [User experience](docs/product/USER-EXPERIENCE.md) | Planned screens and the journey from configuration to monitoring |
-| [Website specification](docs/product/WEBSITE.md) | Public site content, visual direction, demo behavior, and delivery criteria |
-| [System architecture](docs/engineering/ARCHITECTURE.md) | Execution service, integrations, persistence, and account isolation |
-| [Strategy evaluation](docs/engineering/EVALUATION.md) | Simulation methodology, costs, metrics, and limitations |
+| [Product proposal](docs/product/PROPOSAL.md) | User problem, product value, scope, commercial model, and why TxFlow |
+| [Bot behavior](docs/product/BOT-BEHAVIOR.md) | How a hedged cycle opens, becomes protected, is monitored, closes, recovers and repeats |
+| [User experience](docs/product/USER-EXPERIENCE.md) | Screens and the journey from configuration to monitoring |
+| [Website specification](docs/product/WEBSITE.md) | Public site content, visual direction, prototype behavior, delivery criteria |
+| [System architecture](docs/engineering/ARCHITECTURE.md) | Executor, venue adapters, persistence, account isolation, Builder Code |
+| [Strategy evaluation](docs/engineering/EVALUATION.md) | Simulation method, costs, the minimum-edge gate, metrics, limitations |
 | [Validation plan](docs/engineering/VALIDATION.md) | Evidence required before test and live releases |
-| [Roadmap](docs/ROADMAP.md) | Milestones, deliverables, and acceptance gates |
-| [Builder access request](docs/BUILDER-APPLICATION.md) | Requested capabilities, onboarding questions, and proposed pilot |
-| [Research and evidence](docs/RESEARCH.md) | Official references and the distinction between facts and product hypotheses |
+| [Roadmap](docs/ROADMAP.md) | Milestones, gates, open decisions |
+| [Builder access request](docs/BUILDER-APPLICATION.md) | What we request from TxFlow, form answers, onboarding questions |
+| [Research and evidence](docs/RESEARCH.md) | Official references, observations, and the line between fact and hypothesis |
+| [Integration kit (Portuguese)](integracoes/README.md) | TxFlow and Hibachi API notes, cycle mechanics, checklist |
 
 ## The problem we want to solve
 
-Choosing bot parameters is only the beginning. A trader also needs to understand what the bot will do, what assumptions underpin a simulated result, which costs matter, and why live execution differs from expectations.
+A hedged position looks simple and is not. Funding carry has to pay for four fills, a builder fee if any, and slippage. Each venue holds its own margin, so a position that is delta-neutral on paper can still lose a leg to liquidation. A rejected second order leaves a directional position at the worst moment. A timer is not an edge.
 
-Our product hypothesis is that a focused workflow can make these decisions easier for TxFlow users: **configure → evaluate → review → authorize → monitor**. We will validate that hypothesis with an internal pilot and a small invited group before expanding the product.
+Our product hypothesis is that a focused workflow makes these decisions easier and safer for TxFlow users: **configure → evaluate → review → authorize → monitor**, with a bot that refuses to open a cycle whose expected carry does not cover its costs. We will validate that with an internal pilot and a small invited group before expanding.
 
 ## What the first version will do
 
-- **Configure explicit rules:** instrument, direction, entry condition, bounded position size, exit conditions, and optional repetition.
-- **Evaluate before execution:** clearly labelled simulation or paper trading, with assumptions and data coverage visible.
-- **Review the complete configuration:** costs, limits, permissions, and behavior during failures before activation.
-- **Operate through supported APIs:** authenticated order management, streaming updates, and reconciliation of actual fills and positions.
-- **Explain what happened:** order history, reason for each action, net performance, exposure, and incident status.
-- **Keep controls clear:** pause new entries, stop after the current cycle, and request position closure are separate actions.
+- **Configure explicit rules:** instrument, direction per venue (chosen by the user, never random), bounded size, hold duration, delta tolerance, entry-basis limit, loss limit, repetition and cooldown.
+- **Evaluate before execution:** clearly labelled simulation showing funding carry against fees, builder fee and slippage; break-even hold; liquidation distance per leg; a margin stress test; a per-cycle ledger with assumptions listed.
+- **Gate on edge:** a minimum-edge gate compares expected funding carry over the hold with round-trip costs, using only rates visible at entry, and refuses entry otherwise.
+- **Review the whole configuration:** costs including any builder fee, limits, permissions, and behavior during failures before activation.
+- **Operate through supported APIs:** signed order management, streams, and reconciliation of actual fills and positions on both venues.
+- **Explain what happened:** order history, the reason for each action, net result, exposure and incidents.
+- **Keep controls distinct:** pause new entries, stop after the current cycle, cancel pending orders, and close both legs are four different actions.
 
-The MVP will support **one strategy family on TxFlow**, rather than promise a broad catalogue at launch. Live operation is conditional on access approval, integration validation, and explicit user activation.
+Live operation is conditional on access approval, integration validation on testnet, and explicit user activation.
 
-## Initial strategy: bounded, rule-based position cycles
+## The strategy: bounded delta-neutral cycles
 
-A user configures a long or short entry, a bounded size, and exit rules. A cycle can have a maximum holding duration, such as 5 or 12 hours, and optional repetition after the previous position is confirmed closed and entry checks pass again.
+A cycle opens opposite positions of equal notional on two venues. The hold timer starts only when **both legs are confirmed** within the delta tolerance (`protected_at`), not at click or first fill. At the scheduled close the bot cancels the cycle's orders, reads actual positions, reduces both legs and marks the cycle complete only after reconciliation. Repetition requires a flat account and every entry check, including the edge gate, to pass again.
 
-The timer is an execution rule, not a source of profit. A single-venue directional position is not delta neutral. Cross-exchange hedged cycles remain a **later expansion**, with separate requirements for coordinating both legs and handling incomplete hedges.
+Five and twelve hours are configurable examples, not defaults to be justified by returns. Delta-neutral does not mean risk-free: basis risk, funding that shrinks or flips, per-venue margin and liquidation, one-sided fills and outages remain. See [bot behavior](docs/product/BOT-BEHAVIOR.md).
 
-## Designed for understandable evaluation
+## Economics, stated plainly
 
-Every evaluation will identify the strategy version, inputs, data period, costs, and execution assumptions. Historical backtesting will be offered only where data quality supports the strategy being tested. Simulation, testnet, and live results will remain distinguishable.
+The only source of expected return in this design is the funding differential between venues. On TxFlow, funding settles on a cycle (default hourly) and is paid between traders, not to the exchange. A single read of TxFlow's public testnet on 23 October 2026 showed a BTC funding rate far smaller than the placeholder values in our early planning; that is one testnet sample and not evidence about mainnet, but it shows why the product must evaluate costs first. A short hold paying fees on four fills can need a larger differential than funding provides, which is why the minimum-edge gate exists and why evaluation reports never imply that time in the market creates profit.
 
-The planned dashboard will report net PnL, drawdown, fees, funding where available, exposure, and execution exceptions. It will not label a configuration profitable or safe based on a single historical result.
+## Why TxFlow, and Builder Code
 
-## Why TxFlow
+TxFlow documents public reads, locally signed writes with agent keys, streaming updates, a free testnet, and a **Builder Code**: an app that routes order flow can charge a user-approved fee on each fill, up to 0.1% on perpetuals, additional to exchange fees, approved with the user's main key and revocable. Our application is therefore a Builder Code application. A builder fee is one option under consideration, not a committed scheme; if introduced it will stay within the cap, be user-approved, and be shown beside the exchange fee in review and in every report. [API reference](https://docs.txflow.com/api/) · [Builder Code](https://docs.txflow.com/getting-started/builder-code)
 
-TxFlow documents market/account reads, signed trading actions, streaming updates, and agent authorization. Its Builder Code documentation includes applications that route user order flow. Those capabilities make it a relevant integration target for this product. [API reference](https://docs.txflow.com/api/) · [Builder Code](https://docs.txflow.com/getting-started/builder-code)
-
-We are seeking developer onboarding to validate the integration and progress toward a controlled pilot. The intended contribution is a focused user interface for legitimate automated trading, clear performance reporting, and actionable integration feedback. These are product objectives, not proven adoption or volume commitments.
+TxFlow's Points documentation says wash trading, artificial volume and multi-account farming earn little or nothing. TxEquibot is not designed to optimise Points: one account per user, no self-trading, no volume for its own sake. The edge gate is part of that stance. [How Points work](https://docs.txflow.com/points/how-points-work)
 
 ## Execution and user control
 
-The intended architecture separates the web interface from a persistent executor, so closing a browser does not stop monitoring. Users explicitly authorize trading access. Their primary wallet key or seed phrase will never be requested by the application.
+The web interface is separate from a persistent executor, so closing a browser does not stop monitoring. Users explicitly authorize trading access with an agent key. Their primary wallet key or seed phrase will never be requested, and withdrawals or transfers are out of scope.
 
-Delegated trading credentials still carry material risk: they can authorize trades that lose money. Before a public pilot, the implementation must validate credential protection, account isolation, revocation, risk limits, restart recovery, and the exact permissions exposed by the platform.
+Delegated credentials still carry material risk: they can place losing trades, and limits inside TxEquibot are software limits, not on-chain guarantees. Before a public pilot the implementation must validate credential protection, account isolation, revocation, risk limits, restart recovery and the exact permissions each venue exposes.
 
 ## Build sequence
 
-1. Document the proposal and demonstrate the intended user journey.
-2. Build read-only views and labelled simulation.
-3. Validate supported API actions in test environments.
-4. Run a limited, authorized live pilot with reconciled execution records.
-5. Invite a small group after operational and account-isolation checks pass.
-6. Consider additional strategies and cross-exchange hedging based on evidence and demand.
+1. Document the proposal and demonstrate the journey with a labelled prototype (done locally; publication pending).
+2. Read-only integration on TxFlow testnet, which needs no application.
+3. Versioned evaluation with disclosed assumptions.
+4. Signed orders, reconciliation and both-leg failure recovery on test environments.
+5. Limited, authorized live pilot with reconciled records, after access approval.
+6. Small invited group after isolation and operational checks pass.
+7. Additional strategies or venues based on evidence.
 
 See [the roadmap](docs/ROADMAP.md) for completion criteria. This sequence is a plan, not a release schedule.
 
@@ -83,20 +84,20 @@ See [the roadmap](docs/ROADMAP.md) for completion criteria. This sequence is a p
 
 ```text
 docs/
-  product/          Product, bot behavior, and user experience
-  engineering/      Architecture, evaluation, and validation
+  product/          Product, bot behavior, user experience, website
+  engineering/      Architecture, evaluation, validation
   BUILDER-APPLICATION.md
   RESEARCH.md
   ROADMAP.md
   archive/          Earlier planning material
-integracoes/        Portuguese API research and future hedged-cycle notes
+integracoes/        Portuguese API research and cycle mechanics
 examples/           Non-executable configuration examples
 ```
 
-The earlier [Portuguese product plan](docs/PLANEJAMENTO-PRODUTO.md) and [integration research](integracoes/README.md) provide background. The English documents linked above define the current MVP. No installation or trading command is provided because executable software has not yet been released.
+The earlier [Portuguese product plan](docs/PLANEJAMENTO-PRODUTO.md) and [specification](docs/ESPECIFICACAO.md) are background; where they differ from the documents linked above, the English documents define the current scope. No installation or trading command is provided because executable trading software has not been released.
 
 ## Project discussion
 
 Questions and implementation feedback can be raised through this repository's Issues when enabled. Please use [the contribution guide](CONTRIBUTING.md). Never post account credentials, private keys, seed phrases, or signed trading payloads.
 
-**Last reviewed:** 23 October 2026. Platform capabilities and access requirements must be rechecked during implementation.
+**Last reviewed:** 23 October 2026. Platform capabilities, hosts and access requirements must be rechecked during implementation.

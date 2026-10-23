@@ -1,6 +1,6 @@
 # TxEquibot — kit de integração
 
-> Pesquisa técnica de apoio. Os requisitos Hibachi e ciclos protegidos pertencem à expansão futura; o MVP atual prioriza TX Flow, trading por regras e avaliação. Consulte o README principal para o escopo vigente.
+> Pesquisa técnica de apoio ao foco atual: ciclos delta neutros com o TX Flow como plataforma principal e uma segunda perna por adaptador (Hibachi é a candidata estudada). Consulte o README principal para o escopo vigente, o gate de edge mínimo e o Builder Code.
 
 Pesquisa realizada em 23/10/2026. Material de preparação, não um robô executável. Nenhuma credencial foi copiada do projeto anterior e nenhuma ordem foi enviada.
 
@@ -15,6 +15,6 @@ Pesquisa realizada em 23/10/2026. Material de preparação, não um robô execut
 
 Recomendação para o primeiro piloto: um ativo, um ciclo por usuário, posições dedicadas ao robô e um executor persistente. Interface web apenas controla e acompanha esse executor.
 
-Não há uma integração autenticada pronta neste kit. Hosts, ambientes, versões, assinatura e permissões devem ser validados com as plataformas antes de operar. Não confundir testnet TX Flow com produção Hibachi: nunca combinar uma perna simulada com outra real para tentar produzir hedge.
+Não há uma integração autenticada pronta neste kit. Os hosts do TX Flow estão confirmados na documentação oficial (revisão de 23/10/2026), mas ambientes, versões, assinatura e permissões de cada plataforma devem ser validados antes de operar. Não confundir testnet TX Flow com produção Hibachi: nunca combinar uma perna simulada com outra real para tentar produzir hedge.
 
-O período de permanência é uma regra operacional; não assegura rentabilidade. Cada abertura e fechamento tem custos. A estratégia econômica e os limites de perda ainda precisam ser definidos.
+O período de permanência é uma regra operacional; não assegura rentabilidade. Cada abertura e fechamento tem custos (taxas em quatro execuções, eventual taxa de builder e slippage), e o único retorno esperado é o diferencial de funding. Por isso o ciclo só abre se o carry esperado cobrir os custos (gate de edge mínimo). Os limites de perda ainda precisam ser definidos.

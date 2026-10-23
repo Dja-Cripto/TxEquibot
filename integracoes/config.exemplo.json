@@ -14,6 +14,17 @@
     "maxConcurrentCyclesPerUser": 1,
     "initialDirection": null
   },
+  "edgeGate": {
+    "enabled": true,
+    "minCarryToCostMultiple": null,
+    "ratesSource": "rates_visible_at_entry"
+  },
+  "builder": {
+    "enabled": false,
+    "feeTenthsOfBasisPoint": null,
+    "perpetualCapTenthsOfBasisPoint": 100,
+    "note": "Pilot default is no fee. Must be user-approved with the main key and shown beside the exchange fee."
+  },
   "risk": {
     "capitalPerVenue": null,
     "maxLeverage": null,
