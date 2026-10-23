@@ -5,7 +5,7 @@ Milestones are ordered by dependency, not calendar promises.
 | Milestone | Deliverable | Completion gate | Current status |
 |---|---|---|---|
 | 0. Proposal | Public documentation and access request | Scope, status and dependencies consistent | Documentation aligned 23 Oct 2026 |
-| 1. Product demonstration | Interactive prototype: configure, evaluate, review, monitor, connections; simulated data; optional read-only testnet data | Configure/evaluate/monitor journey understandable; claims match status | Built locally; publication pending |
+| 1. Product demonstration | Interactive prototype: configure, evaluate, review, monitor, connections; simulated data; optional read-only testnet data | Configure/evaluate/monitor journey understandable; claims match status | Published 23 Oct 2026 |
 | 2. Read-only integration | Instruments, funding, books and account views from TxFlow testnet, then a second venue | Correct units, freshness and permissions; public reads already shown working from a browser | Planned (testnet needs no application) |
 | 3. Evaluation | Versioned strategy and reproducible runs fed by real funding and metadata | Reproducible report, disclosed assumptions, independently reconciled accounting | Simulation prototype exists; real-data feed planned |
 | 4. Test execution | Signed orders on both venues' test environments, reconciliation, restart recovery, one-sided-fill recovery | Critical validation scenarios pass | Planned |

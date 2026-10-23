@@ -6,11 +6,11 @@ TxEquibot is a proposed web application for **delta-neutral position cycles with
 
 **Stage:** specification and interactive prototype · **Primary venue:** TxFlow · **Second leg:** adapter-based (Hibachi researched) · **Delivery:** web application with a persistent execution service · **Builder:** individual developer
 
-> This repository contains product and engineering documentation. An interactive prototype with simulated evaluations and optional read-only TxFlow testnet data has been built; it places no orders and connects no wallet. The trading application has not been implemented. TxFlow mainnet access has not been granted. No trading performance or existing user base is claimed.
+> This repository contains product and engineering documentation. An interactive prototype with simulated evaluations and optional read-only TxFlow testnet data is published at the website below; it places no orders and connects no wallet. The trading application has not been implemented. TxFlow mainnet access has not been granted. No trading performance or existing user base is claimed.
 
 **Website:** [txequibot.setupdja.website](https://txequibot.setupdja.website/)
 
-A minimal placeholder is currently live at that address. The prototype will replace it when published. Website source is maintained separately and intentionally excluded from this public repository.
+The address serves the interactive prototype, published on 23 October 2026, which replaced an earlier minimal placeholder. Website source is maintained separately and intentionally excluded from this public repository.
 
 ## Start here
 
@@ -70,7 +70,7 @@ Delegated credentials still carry material risk: they can place losing trades, a
 
 ## Build sequence
 
-1. Document the proposal and demonstrate the journey with a labelled prototype (done locally; publication pending).
+1. Document the proposal and demonstrate the journey with a labelled prototype (done; published 23 October 2026).
 2. Read-only integration on TxFlow testnet, which needs no application.
 3. Versioned evaluation with disclosed assumptions.
 4. Signed orders, reconciliation and both-leg failure recovery on test environments.

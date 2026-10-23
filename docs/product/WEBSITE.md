@@ -2,7 +2,7 @@
 
 Public address: [txequibot.setupdja.website](https://txequibot.setupdja.website/).
 
-Status as of 23 October 2026: a white placeholder displaying “TxEquibot” is online at that address. A presentation site with an interactive prototype (stages 2 and 3 below) has been built locally and is awaiting publication; until it is deployed, the public address still shows the placeholder. This document defines the site's content and rules; it does not claim features that are not live.
+Status as of 23 October 2026: the presentation site with the interactive prototype (stages 2 and 3 below) is live at that address, replacing the earlier white placeholder. The trading application (stage 4) does not exist. This document defines the site's content and rules; it does not claim features that are not live.
 
 ## Purpose
 
@@ -85,7 +85,7 @@ Local website source belongs in the workspace's `site/` folder. That folder is e
 
 The current site is served on the owner's VPS through Cloudflare Tunnel. Infrastructure secrets and access details belong outside public documentation. Publishing a documentation change does not automatically deploy the website; they are separate workflows.
 
-Publishing the prototype replaces the placeholder and is a separate step decided by the project owner. Source stays local and unpublished in this repository.
+The prototype replaced the placeholder on 23 October 2026. Source stays local and unpublished in this repository.
 
 ## Acceptance criteria for the presentation release
 

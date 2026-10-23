@@ -34,7 +34,7 @@ Previous work includes a separate Python prototype using Hibachi API calls and a
 
 ## Form alignment
 
-Primary category: Trading Bot. Supporting capabilities: Analytics / Dashboard and Portfolio Management, if multiple selections are permitted. Team: Solo Builder. Stage: choose **Prototype** once the interactive site is published and the answer can be verified at the project website; otherwise **Idea Stage**. Describe it accurately as a simulated prototype with read-only testnet data. Prior-launch answers must reflect the developer's actual release history, not planned integrations.
+Primary category: Trading Bot. Supporting capabilities: Analytics / Dashboard and Portfolio Management, if multiple selections are permitted. Team: Solo Builder. Stage: **Prototype** is now verifiable at the project website (published 23 October 2026); **Idea Stage** remains the conservative alternative. Describe it accurately as a simulated prototype with read-only testnet data. Prior-launch answers must reflect the developer's actual release history, not planned integrations.
 
 APIs expected: Public Market Data, Private Trading API, Order Management, Account Information, WebSocket Streams, Authentication / Signing; Historical Data if available. Use case: arbitrage-style hedged carry and portfolio management, described honestly as bounded delta-neutral cycles.
 
